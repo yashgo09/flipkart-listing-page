@@ -13,6 +13,8 @@ function ProductContainer() {
           imageURL={product.images[0]}
           price={product.price}
           rating={product.rating}
+          category={product.category}
+          discount={product.discountPercentage}
         />
       ))}
     </section>
