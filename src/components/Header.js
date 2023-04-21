@@ -1,11 +1,11 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 
-function Header() {
+function Header({ setSearchValue }) {
   return (
     <header>
       <span className="brand">Flipkart</span>
-      <SearchBar />
+      <SearchBar setSearchValue={setSearchValue} />
       <ul className="menu">
         <li>Home</li>
         <li>Cart</li>
