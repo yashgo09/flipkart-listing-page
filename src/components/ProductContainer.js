@@ -5,7 +5,9 @@ import allProducts from "../data";
 function ProductContainer({ searchQuery }) {
   const productsList = allProducts.filter((product) => {
     const title = product.title.toLowerCase();
-    if (searchQuery) title.includes(searchQuery);
+    if (searchQuery) {
+      return title.includes(searchQuery);
+    }
     return product;
   });
   return (
