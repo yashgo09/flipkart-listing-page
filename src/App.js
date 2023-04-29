@@ -7,7 +7,7 @@ function App() {
   const [searchValue, setSearchValue] = useState();
   return (
     <div className="App">
-      <Header setSearchValue={setSearchValue} />
+      {/* <Header setSearchValue={setSearchValue} /> */}
       <ProductContainer searchQuery={searchValue} />
     </div>
   );
