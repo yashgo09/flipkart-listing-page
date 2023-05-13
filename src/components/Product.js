@@ -12,7 +12,7 @@ function Product() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  });
   const urlParams = useParams();
 
   const fetchData = () => {

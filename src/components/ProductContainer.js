@@ -5,6 +5,7 @@ import { ThemeContext } from "../context/ThemeContext";
 
 function ProductContainer() {
   const [allProducts, setAllProducts] = useState([]);
+  const { theme, searchQuery } = useContext(ThemeContext);
 
   useEffect(() => {
     fetchData();
@@ -30,8 +31,6 @@ function ProductContainer() {
     }
     return product;
   });
-
-  const { theme, searchQuery } = useContext(ThemeContext);
 
   return (
     <section className="product-container" data-theme={theme}>
