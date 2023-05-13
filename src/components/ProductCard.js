@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 // import { AiFillHeart } from "react-icons/ai";
 import Button from "./Button";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../context/ThemeContext";
+import { CartContext } from "../context/CartContext";
 
 function ProductCard({ title, description, imageURL, price, rating, stock, discount, id }) {
+  const { theme } = useContext(ThemeContext);
+  const { addToCart } = useContext(CartContext);
   return (
-    <div className="product-card">
+    <div className="product-card" data-theme={theme}>
       <AiOutlineHeart className="like-button" />
       {/* <AiFillHeart className="like-button" color="red" /> */}
       <Link to={`/products/${id}`}>
@@ -27,7 +31,11 @@ function ProductCard({ title, description, imageURL, price, rating, stock, disco
         <p className="product-stock">Stock: {stock}</p>
         <p className="product-discount">{discount}%</p>
       </div>
-      <Button text="Add to Cart" type="add-to-cart" />
+      <Button
+        text="Add to Cart"
+        type="add-to-cart"
+        clickHandler={() => addToCart({ id, title, imageURL, discount, price })}
+      />
     </div>
   );
 }

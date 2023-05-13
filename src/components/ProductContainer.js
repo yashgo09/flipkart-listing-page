@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import { ThemeContext } from "../context/ThemeContext";
 // import allProducts from "../data";
 
 function ProductContainer({ searchQuery }) {
@@ -15,7 +16,7 @@ function ProductContainer({ searchQuery }) {
     fetch("https://dummyjson.com/products")
       .then((data) =>
         data.json().then((jsonData) => {
-          console.log(jsonData.products);
+          // console.log(jsonData.products);
           setAllProducts(jsonData.products);
         })
       )
@@ -30,8 +31,10 @@ function ProductContainer({ searchQuery }) {
     return product;
   });
 
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <section className="product-container">
+    <section className="product-container" data-theme={theme}>
       {productsList &&
         productsList.map((product) => (
           <ProductCard
