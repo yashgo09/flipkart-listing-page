@@ -23,11 +23,13 @@ function Root() {
     setCartItems(arr);
   };
 
+  const searchQuery = "";
+
   // console.log(cartItems);
 
   return (
     <>
-      <ThemeContext.Provider value={{ theme, setTheme }}>
+      <ThemeContext.Provider value={{ theme, setTheme, searchQuery }}>
         <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
           <Header cartItemCount={cartItems.length} />
           <Outlet />

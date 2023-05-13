@@ -27,7 +27,7 @@ function Product() {
   return (
     <section className="container">
       <div className="product-grid">
-        <img src={product.thumbnail} />
+        <img src={product.thumbnail} alt={product.title} />
         <div className="product-details">
           <div className="flex">
             <h1 className="product-page-title">{product.title}</h1>

@@ -1,9 +1,9 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { ThemeContext } from "../context/ThemeContext";
 // import allProducts from "../data";
 
-function ProductContainer({ searchQuery }) {
+function ProductContainer() {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function ProductContainer({ searchQuery }) {
     return product;
   });
 
-  const { theme } = useContext(ThemeContext);
+  const { theme, searchQuery } = useContext(ThemeContext);
 
   return (
     <section className="product-container" data-theme={theme}>

@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import SearchBar from "./SearchBar";
+// import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
 import { FaSun } from "react-icons/fa";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 
-function Header({ setSearchValue, cartItemCount }) {
+function Header({ cartItemCount }) {
   const { theme, setTheme } = useContext(ThemeContext);
   return (
     <header className={theme}>
