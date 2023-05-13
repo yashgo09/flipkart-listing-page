@@ -4,7 +4,7 @@ import { CartContext } from "../context/CartContext";
 
 function CartPage() {
   const { cartItems } = useContext(CartContext);
-  console.log("Inside CartPage ", cartItems);
+  // console.log("Inside CartPage ", cartItems);
   return (
     <main className="cart-page">
       <section className="cart-products">

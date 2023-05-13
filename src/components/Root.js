@@ -14,12 +14,21 @@ function Root() {
     setCartItems((existingProducts) => [...existingProducts, newProduct]);
   };
 
-  console.log(cartItems);
+  const removeFromCart = (productToRemove) => {
+    const productIndex = cartItems.indexOf(productToRemove);
+    // console.log(productIndex);
+    const arr = [...cartItems.slice(0, productIndex), ...cartItems.slice(productIndex + 1)];
+    // console.log(arr);
+    // setCartItems((existingProducts) => existingProducts.splice(1, 1));
+    setCartItems(arr);
+  };
+
+  // console.log(cartItems);
 
   return (
     <>
       <ThemeContext.Provider value={{ theme, setTheme }}>
-        <CartContext.Provider value={{ cartItems, addToCart }}>
+        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
           <Header cartItemCount={cartItems.length} />
           <Outlet />
         </CartContext.Provider>
