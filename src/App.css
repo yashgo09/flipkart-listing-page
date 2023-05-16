@@ -240,6 +240,10 @@ img {
   justify-self: center;
 }
 
+.btn[data-type="add-to-cart"]:active {
+  background-color: #3535b5;
+}
+
 .btn[data-type="buy-now"] {
   background-color: #d43200;
   color: #fff;

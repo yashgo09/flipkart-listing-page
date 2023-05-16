@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "./Button";
-import { CartContext } from "../context/CartContext";
+import RemoveFromCartButton from "./RemoveFromCartButton";
 
 function CartProductCard({ productDetails }) {
   const { title, imageURL, discount, price } = productDetails;
-  const { removeFromCart } = useContext(CartContext);
   return (
     <div className="cart-products__card">
       <img src={imageURL} alt={title} />
@@ -19,7 +18,7 @@ function CartProductCard({ productDetails }) {
             <Button text="+" type="round" />
           </div>
           <Button text="Save For Later" type="default" />
-          <Button text="Remove" type="danger" clickHandler={() => removeFromCart(productDetails)} />
+          <RemoveFromCartButton productDetails={productDetails} />
         </div>
       </div>
     </div>

@@ -1,14 +1,21 @@
 import React, { useContext } from "react";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 // import { AiFillHeart } from "react-icons/ai";
-import Button from "./Button";
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../context/ThemeContext";
-import { CartContext } from "../context/CartContext";
+import { ThemeContext, CartContext } from "../Contexts";
+import AddToCartButton from "./AddToCartButton";
 
-function ProductCard({ title, description, imageURL, price, rating, stock, discount, id }) {
+function ProductCard({ id, title, description, imageURL, price, rating, stock, discount }) {
   const { theme } = useContext(ThemeContext);
-  const { addToCart } = useContext(CartContext);
+  // const { addToCart, cartItems } = useContext(CartContext);
+
+  // function addToCartBtnText() {
+  //   const text = cartItems.forEach((item) => {
+  //     if (item.id === id) return "Remove";
+  //     else return "Add to Cart";
+  //   });
+  //   return text;
+  // }
   return (
     <div className="product-card" data-theme={theme}>
       <AiOutlineHeart className="like-button" />
@@ -31,10 +38,8 @@ function ProductCard({ title, description, imageURL, price, rating, stock, disco
         <p className="product-stock">Stock: {stock}</p>
         <p className="product-discount">{discount}%</p>
       </div>
-      <Button
-        text="Add to Cart"
-        type="add-to-cart"
-        clickHandler={() => addToCart({ id, title, imageURL, discount, price })}
+      <AddToCartButton
+        productDetails={{ id, title, description, imageURL, price, rating, stock, discount }}
       />
     </div>
   );

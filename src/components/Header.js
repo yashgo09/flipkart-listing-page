@@ -1,12 +1,19 @@
 import React, { useContext } from "react";
 // import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../context/ThemeContext";
+import { ThemeContext } from "../Contexts";
 import { FaSun } from "react-icons/fa";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 
 function Header({ cartItemCount }) {
   const { theme, setTheme } = useContext(ThemeContext);
+
+  function btnThemeChange() {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+  }
+
   return (
     <header className={theme}>
       <Link to="/" className="link">
@@ -26,10 +33,7 @@ function Header({ cartItemCount }) {
           </li>
         </Link>
         <li>
-          <button
-            className="theme-btn"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          >
+          <button className="theme-btn" onClick={btnThemeChange}>
             {theme === "light" ? <BsFillMoonStarsFill /> : <FaSun />}
           </button>
         </li>

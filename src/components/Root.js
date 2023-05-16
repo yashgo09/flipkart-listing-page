@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
-import { ThemeContext } from "../context/ThemeContext";
-import { CartContext } from "../context/CartContext";
+import { ThemeContext, CartContext } from "../Contexts";
 
 function Root() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");

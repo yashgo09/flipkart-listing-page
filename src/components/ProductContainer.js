@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import { ThemeContext } from "../context/ThemeContext";
+import { ThemeContext } from "../Contexts";
 // import allProducts from "../data";
 
 function ProductContainer() {
