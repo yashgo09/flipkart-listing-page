@@ -1,28 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import Button from "./Button";
+import { ProductsData } from "../Contexts";
 
 function Product() {
-  const [product, setProduct] = useState({});
+  const productId = useParams().productID;
 
-  const limitedStock = 10;
-  const properStockMarkup = <p className="product-page-stock">Stock: {product.stock}</p>;
-  const limitedStockMarkup = <p className="product-page-stock">Stock: {product.stock}</p>;
+  const { allProducts } = useContext(ProductsData);
 
-  useEffect(() => {
-    fetchData();
-  });
-  const urlParams = useParams();
+  const product = allProducts.filter((prod) => prod.id == productId)[0];
+  console.log(product);
 
-  const fetchData = () => {
-    fetch(`https://dummyjson.com/products/${urlParams.productID}`)
-      .then((res) => res.json())
-      .then((productData) => {
-        setProduct(productData);
-      })
-      .catch((error) => console.error(error));
-  };
+  // product.stock > limitedStock ? properStockMarkup : limitedStockMarkup;
+
+  let stockMarkup = <p className="product-page-stock">Stock: {product.stock}</p>;
 
   return (
     <section className="container">
@@ -39,7 +31,7 @@ function Product() {
           <p className="product-page-desc">{product.description}</p>
           <div className="flex" data-justify="left">
             <p className="product-page-price">${product.price}</p>
-            {product.stock > limitedStock ? properStockMarkup : limitedStockMarkup}
+            {stockMarkup}
           </div>
           <div className="flex" style={{ marginBlock: "2em" }}>
             <Button text="Add to Cart" type="add-to-cart" />
