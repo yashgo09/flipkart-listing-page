@@ -3,7 +3,8 @@ import Button from "./Button";
 import RemoveFromCartButton from "./RemoveFromCartButton";
 
 function CartProductCard({ productDetails }) {
-  const { title, imageURL, discount, price } = productDetails;
+  const { id, title, imageURL, discount, price } = productDetails;
+  console.log(id);
   return (
     <div className="cart-products__card">
       <img src={imageURL} alt={title} />
@@ -18,7 +19,7 @@ function CartProductCard({ productDetails }) {
             <Button text="+" type="round" />
           </div>
           <Button text="Save For Later" type="default" />
-          <RemoveFromCartButton productDetails={productDetails} />
+          <RemoveFromCartButton productId={id} />
         </div>
       </div>
     </div>

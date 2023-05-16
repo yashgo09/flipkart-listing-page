@@ -3,7 +3,7 @@ import Button from "./Button";
 import { CartContext } from "../Contexts";
 
 function AddToCartButton({ productDetails }) {
-  const { addToCart, cartItems } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   const { id, title, imageURL, discount, price } = productDetails;
 
   return (
