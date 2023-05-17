@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 // import { AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -8,17 +8,6 @@ import RemoveFromCartButton from "./RemoveFromCartButton";
 
 function ProductCard({ id, title, description, imageURL, price, rating, stock, discount }) {
   const { theme } = useContext(ThemeContext);
-  // const { addToCart, cartItems } = useContext(CartContext);
-
-  // function addToCartBtnText() {
-  //   const text = cartItems.forEach((item) => {
-  //     if (item.id === id) return "Remove";
-  //     else return "Add to Cart";
-  //   });
-  //   return text;
-  // }
-
-  // const productDetails = "";
 
   const addButton = (
     <AddToCartButton
@@ -27,21 +16,15 @@ function ProductCard({ id, title, description, imageURL, price, rating, stock, d
   );
   const removeButton = <RemoveFromCartButton productId={id} />;
 
+  let actionButton = addButton;
+
   const { cartItems } = useContext(CartContext);
 
-  const [cardButton, setCardButton] = useState(addButton);
-  // <AddToCartButton
-  //   productDetails={{ id, title, description, imageURL, price, rating, stock, discount }}
-  // />;
-  useEffect(() => {
-    cartItems.forEach((item) => {
-      if (item.id == id) {
-        setCardButton((prevButton) => (prevButton === addButton ? removeButton : addButton));
-      }
-    });
-  }, [cartItems]);
-
-  // console.log("cardButton::::: ", cardButton);
+  cartItems.forEach((item) => {
+    if (id === item.id) {
+      actionButton = removeButton;
+    }
+  });
 
   return (
     <div className="product-card" data-theme={theme}>
@@ -65,7 +48,7 @@ function ProductCard({ id, title, description, imageURL, price, rating, stock, d
         <p className="product-stock">Stock: {stock}</p>
         <p className="product-discount">{discount}%</p>
       </div>
-      {cardButton}
+      {actionButton}
     </div>
   );
 }

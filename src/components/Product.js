@@ -10,7 +10,7 @@ function Product() {
   const { allProducts } = useContext(ProductsData);
 
   const product = allProducts.filter((prod) => prod.id == productId)[0];
-  console.log(product);
+  // console.log(product);
 
   // product.stock > limitedStock ? properStockMarkup : limitedStockMarkup;
 

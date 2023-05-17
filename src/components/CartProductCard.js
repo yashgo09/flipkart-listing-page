@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 import RemoveFromCartButton from "./RemoveFromCartButton";
 
 function CartProductCard({ productDetails }) {
   const { id, title, imageURL, discount, price } = productDetails;
-  console.log(id);
+
+  const [quantity, setQuantity] = useState(1);
+
+  console.log(quantity);
+
   return (
     <div className="cart-products__card">
       <img src={imageURL} alt={title} />
@@ -15,7 +19,7 @@ function CartProductCard({ productDetails }) {
         <div className="cart-products__controls">
           <div className="cart-products__controls--quantity">
             <Button text="-" type="round" />
-            <input type="text" />
+            <input type="number" min="1" onChange={(e) => setQuantity(e.target.value)} />
             <Button text="+" type="round" />
           </div>
           <Button text="Save For Later" type="default" />
