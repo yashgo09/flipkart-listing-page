@@ -1,10 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { ProductsData, ThemeContext } from "../Contexts";
+import SortProducts from "./SortProducts";
 
 function ProductContainer() {
   const { allProducts } = useContext(ProductsData);
   const { theme, searchQuery } = useContext(ThemeContext);
+
+  const [sortDirection, setSortDirection] = useState("");
 
   const productsList = allProducts.filter((product) => {
     const title = product.title.toLowerCase();
@@ -14,8 +17,16 @@ function ProductContainer() {
     return product;
   });
 
+  if (sortDirection) {
+    if (sortDirection === "asc") productsList.sort((a, b) => a.price - b.price);
+    else productsList.sort((a, b) => b.price - a.price);
+  }
+
   return (
     <section className="product-container" data-theme={theme}>
+      <div className="products-sort-option">
+        <SortProducts setSortDirection={setSortDirection} />
+      </div>
       {productsList &&
         productsList.map((product) => (
           <ProductCard

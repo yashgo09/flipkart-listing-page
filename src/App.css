@@ -370,3 +370,15 @@ input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+
+.sort-select {
+  padding: 0.5em 1em;
+  font: inherit;
+  margin-inline-start: 1em;
+}
+
+.products-sort-option {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: end;
+}
