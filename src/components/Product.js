@@ -9,8 +9,6 @@ function Product() {
 
   const { allProducts } = useContext(ProductsData);
 
-  console.log("product ID::", typeof parseInt(productId));
-
   const product = allProducts.filter((prod) => prod.id === parseInt(productId))[0];
   // console.log(product);
 

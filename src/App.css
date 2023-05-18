@@ -122,11 +122,30 @@ img {
   font-size: 0.8em;
 }
 
+.home-main {
+  display: grid;
+  align-items: start;
+  gap: 1em;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 1.5rem;
+}
+
+.filter-container {
+  background: white;
+  padding: 1em;
+}
+
+.brand-filter {
+  list-style: none;
+  padding-inline-start: 1em;
+}
+
 .product-container {
+  grid-column: span 4;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1em;
-  padding: 2rem;
+  padding: 1rem;
   /* background-color: #fafafa; */
 }
 
