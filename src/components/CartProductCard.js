@@ -11,8 +11,8 @@ function CartProductCard({ productDetails, setCartPrice }) {
   const discountInCurrency = Math.round(price * discount) / 100;
   const discountedPrice = price - discountInCurrency;
 
-  const totalProductPrice = discountedPrice * quantity;
-  const totalProductDiscount = discountInCurrency * quantity;
+  // const totalProductPrice = discountedPrice * quantity;
+  // const totalProductDiscount = discountInCurrency * quantity;
 
   // setCartPrice(totalProductPrice);
 

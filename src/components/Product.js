@@ -9,7 +9,9 @@ function Product() {
 
   const { allProducts } = useContext(ProductsData);
 
-  const product = allProducts.filter((prod) => prod.id == productId)[0];
+  console.log("product ID::", typeof parseInt(productId));
+
+  const product = allProducts.filter((prod) => prod.id === parseInt(productId))[0];
   // console.log(product);
 
   // product.stock > limitedStock ? properStockMarkup : limitedStockMarkup;

@@ -6,7 +6,7 @@ function SortProducts({ setSortDirection }) {
     setSortDirection(e.target.value);
   }
   return (
-    <label for="sortby">
+    <label htmlFor="sortby">
       Sortby:
       <select id="sortby" className="sort-select" onChange={handleChange}>
         <option value="">No Sorting</option>
