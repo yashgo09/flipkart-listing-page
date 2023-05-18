@@ -11,24 +11,18 @@ function ProductContainer() {
   const [filters, setFilters] = useState([]);
   const [sortDirection, setSortDirection] = useState("");
 
-  const productsList = allProducts.filter((product) => {
-    // console.log(filters.includes(product.brand));
-    if (filters[0]) return filters.includes(product.brand);
-    else return true;
-    // if (filters[0]) console.log("True or False");
-    // else console.log(false);
-  });
-  // .filter((product) => {
-  //   const title = product.title.toLowerCase();
-  //   if (searchQuery) {
-  //     return title.includes(searchQuery.toLowerCase());
-  //   }
-  //   return product;
-  // })
-
-  // const filteredProducts = productsList;
-
-  console.log(productsList);
+  const productsList = allProducts
+    .filter((product) => {
+      if (filters[0]) return filters.includes(product.brand);
+      else return true;
+    })
+    .filter((product) => {
+      const title = product.title.toLowerCase();
+      if (searchQuery) {
+        return title.includes(searchQuery.toLowerCase());
+      }
+      return true;
+    });
 
   if (sortDirection) {
     if (sortDirection === "asc") productsList.sort((a, b) => a.price - b.price);

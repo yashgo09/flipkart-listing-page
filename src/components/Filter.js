@@ -6,7 +6,6 @@ function Filter({ allProducts, setFilters, filters }) {
   const uniqueBrands = [...new Set(brands)];
 
   const handleChange = (e) => {
-    // console.log(e.target.value);
     const indexOfBrandInArray = filters.indexOf(e.target.value);
     if (e.target.checked) setFilters((prev) => [...prev, e.target.value]);
     else {

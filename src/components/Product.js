@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import Button from "./Button";
 import { ProductsData } from "../Contexts";
+import AddToCartButton from "./AddToCartButton";
 
 function Product() {
   const productId = useParams().productID;
@@ -34,7 +35,19 @@ function Product() {
             {stockMarkup}
           </div>
           <div className="flex" style={{ marginBlock: "2em" }}>
-            <Button text="Add to Cart" type="add-to-cart" />
+            {/* <Button text="Add to Cart" type="add-to-cart" /> */}
+            <AddToCartButton
+              productDetails={{
+                id: product.id,
+                title: product.title,
+                description: product.description,
+                imageURL: product.imageURL,
+                price: product.price,
+                rating: product.rating,
+                stock: product.stock,
+                discount: product.discount,
+              }}
+            />
             <Button text="Buy Now" type="buy-now" />
           </div>
         </div>

@@ -133,6 +133,8 @@ img {
 .filter-container {
   background: white;
   padding: 1em;
+  position: sticky;
+  top: 0;
 }
 
 .brand-filter {

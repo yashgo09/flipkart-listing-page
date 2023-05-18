@@ -9,6 +9,8 @@ import RemoveFromCartButton from "./RemoveFromCartButton";
 function ProductCard({ id, title, description, imageURL, price, rating, stock, discount }) {
   const { theme } = useContext(ThemeContext);
 
+  // TODO: Move this AddButton and RemoveButton to the context so that we can use the same button on the product page also.
+
   const addButton = (
     <AddToCartButton
       productDetails={{ id, title, description, imageURL, price, rating, stock, discount }}
